@@ -18,32 +18,39 @@ public class App {
 		ObjectWriter ptWriter;
 		{
 			CsvMapper csvMapper = new CsvMapper();
-			ptWriter = csvMapper
-				.writerFor(clazz)
-				.with(Locale.forLanguageTag("pt-PT"))
-				.with(
-					csvMapper
-						.schemaFor(clazz)
-						.withColumnSeparator('\t')
-						.withHeader()
-				);
+			ptWriter
+				= csvMapper
+					.writerFor(clazz)
+					.with(
+						Locale
+							.forLanguageTag("pt-PT"))
+					.with(
+						csvMapper
+							.schemaFor(clazz)
+							.withColumnSeparator('\t')
+							.withHeader()
+					);
 		}
 
 		ObjectWriter usWriter;
 		{
 			CsvMapper csvMapper = new CsvMapper();
-			usWriter = csvMapper
-				.writerFor(clazz)
-				.with(Locale.forLanguageTag("en-US"))
-				.with(
-					csvMapper
-						.schemaFor(clazz)
-						.withColumnSeparator('\t')
-						.withHeader()
-				);
+			usWriter
+				= csvMapper
+					.writerFor(clazz)
+					.with(
+						Locale
+							.forLanguageTag("en-US"))
+					.with(
+						csvMapper
+							.schemaFor(clazz)
+							.withColumnSeparator('\t')
+							.withHeader()
+					);
 		}
 
 		ByteArrayOutputStream baos;
+	
 		baos = new ByteArrayOutputStream();
 		ptWriter.writeValue(baos, model1);
 		System.err.println(baos.toString());
