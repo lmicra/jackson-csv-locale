@@ -1,4 +1,4 @@
-Test Jackson CsvMapper with Locale BigInteger Serializer
+Test Jackson CsvMapper with Locale BigDecimal Serializer
 
 Run with:
 
